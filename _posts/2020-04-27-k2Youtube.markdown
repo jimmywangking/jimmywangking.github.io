@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "K2 to ASUS to Youtube"
+date:   2020-04-27 12:00:01 +0800
+categories: jekyll update
+---
+斐讯K2作为免费的套路产品,用户还是不少,而且性能算是第一代千兆路由的标杆,还是很良心的,不过早起的时候说固件截取个人隐私,所以广大网友广泛的开始刷机,有大神在华硕基础上改出了几个版本还是不错的,网上也有教程可以参考.我刷机大概已经有4-5年了,当时刷了大概能有6-7台,一个套路下来轻车熟路,用起来也没觉得特别,但是由于宽带比较落后一直有卡顿.最近换了新的宽带运营商产品,速度确实快了,顺路研究了下科学上网,看视频找资料方便一起.下面介绍下整个流程:
+
+1. 把斐讯K2路由器的固件刷成华硕,应该有多个版本,潘多拉,老毛子,都差不多.都是内部集成了ss
+http://www.upantool.com/sense/2016/9504.html
+
+2. 打开路由器的控制台,一般刷成华硕后会变成192.168.123.1,登陆之后找到ss设置,然后添加服务器节点,强烈推荐批量添加节点,如果有不好用了让路由自己去找好用的来连接.
+https://freefq.com/
+
+3. 找到ss里面批量添加ss/ssr的按钮,把准备好的link拷贝进去,应用本页设置,重启路由,然后在控制台查看对应的google.com是否已经显示ip地址,如果有代表可以浏览更广阔的互联网了.
+http://www.qqgzs.com/archives/asus-ss.html
+
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+

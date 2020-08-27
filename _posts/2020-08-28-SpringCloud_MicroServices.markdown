@@ -1,0 +1,111 @@
+---
+layout: post
+title:  "SpringCloud MicroServices Practice"
+date:   2020-08-28 00:12:01 +0800
+categories: jekyll update
+---
+
+springcloud当前主流的微服务框架,基于核心思想是约定大于配置的springboot,使其在初期搭建及开发过程都变得简单易用,开发人员只需要少量的代码就可以实现特定服务.
+springcloud包含一套组件,贯穿整个微服务生命周期,从服务注册,服务发现,服务过滤,服务分发,服务调用,服务容错,服务追踪,有了全家桶再搭配一套前端框架,可以让系统更加高内聚低耦合可扩展.
+
+
+实现组件功能三部曲:
+第一步:引入maven依赖
+第二步:增加组件配置(支持yaml,properties,json等)
+第三步:增加类及方法注解
+
+
+springcloud八大组件基本使用:
+1.eureka 服务注册中心
+1.1 服务器端引入spring-cloud-starter-netflix-eureka-server,客户端引入spring-cloud-starter-netflix-eureka-client
+1.2 resources目录下bootstrap.yml文件增加config:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+1.3 服务器端主类加注解@EnableEurekaServer,客户端主类加注解@EnableDiscoveryClient
+备注:启动多个eureka server互相注册可以实现高可用
+2.ribbon 负载均衡
+2.1 eureka默认依赖或spring-cloud-netflix-ribbon
+2.2 增加注解@LoadBalanced到restful方法上
+3.feign 声明式服务调用
+3.1 引入依赖 spring-cloud-starter-openfeign
+3.2 主类增加@EnableFeignClients(basePackages = "$basePackages")
+3.3 restful类的调用增加扫描目标包 @ComponentScan(basePackages = "$basePackages")
+4.stream 消息驱动
+4.1 引入依赖spring-cloud-starter-stream-rabbit
+4.2 增加配置
+spring:
+  cloud:
+    stream:
+      bindings:
+        myMessage:
+          group: 
+          content-type: application/json
+4.3 StreamClient 增加@Input(StreamClient.INPUT)  @Output(StreamClient.OUTPUT)注解的方法
+4.4 StreamReceiver类增加@EnableBinding(StreamClient.class)注解
+5.config 配置中心
+5.1 引入依赖 spring-cloud-config-server
+5.2 增加config repository地址用户名和密码
+spring:
+  cloud:
+    config:
+      server:
+        git:
+5.3 主类加注解@EnableConfigServer
+备注:1.仓库保存 service-profile.yml的配置文件.  2.支持git仓库触发rabbitmq后通过amqp动态更新服务配置. 
+6.zuul API网关
+6.1 引入依赖spring-cloud-starter-netflix-zuul
+6.2 增加routing配置用于路由和过滤
+zuul:
+  sensitive-headers:
+  routes:
+    product: /myProduct/**
+  ignored-patterns:
+    - /product/product/ListForOrder
+#    myProduct:
+#      path: /myProduct/**
+#      serviceId: product
+6.3 主类增加@EnableZuulProxy注解
+6.4 作用方法增加注解    @RefreshScope  @ConfigurationProperties("zuul")
+7.hystrix 服务容错
+7.1 引入依赖spring-cloud-starter-netflix-hystrix
+7.2 引入配置服务降级/熔断配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    getProductInfoList:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+feign:
+  hystrix:
+    enabled: true
+7.3 主类使用EnableCircuitBreaker注解
+7.4 熔断类增加@DefaultProperties(defaultFallback = "defaultFallback")注解增加默认fallback方法
+7.5 熔断方法前增加@HystrixCommand() 可增加多种配置
+备注 hystrix-dashboard 用于查看服务状态 依赖为spring-cloud-starter-netflix-hystrix-dashboard
+8.sleuth 链路监控
+8.1 引入依赖spring-cloud-starter-sleuth
+8.2 增加配置
+spring:
+  sleuth:
+    sampler:
+#      percentage: 1
+      probability: 1
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+9.zipkin 实时数据追踪,配合sleuth使用 --非springcloud组件
+9.1 引入依赖spring-cloud-sleuth-zipkin
+9.2 增加配置
+spring:
+  zipkin:
+    base-url: http://localhost:9411
+    sender:
+      type: web

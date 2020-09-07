@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Docker build MySQL 8.0.21 with BinLog"
-date:   2020-09-06 20:01:37 +0800
+date:   2020-09-07 20:01:37 +0800
 categories: 
 ---
 
@@ -15,26 +15,6 @@ docker pull msyql:8.0.21
 2.1 vi Users/wang/mysql8/config/my.cnf
 
 2.2 把配置放入文件并保存
-# Copyright (c) 2017, Oracle and/or its affiliates. All rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; version 2 of the License.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-
-#
-# The MySQL  Server configuration file.
-#
-# For explanations see
-# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
 
 [mysqld]
 pid-file        = /var/run/mysqld/mysqld.pid
@@ -47,13 +27,15 @@ symbolic-links=0
 # Custom config should go here
 !includedir /etc/mysql/conf.d/
 
-#mysql8 authentication
 default_authentication_plugin= mysql_native_password
 
 #bin log setting
 log-bin = /var/lib/mysql/mysql-bin
 binlog-format = ROW
 server-id = 1
+
+#client connect
+bind-address = 0.0.0.0
 
 3. 创建Mysql8容器
 docker run \

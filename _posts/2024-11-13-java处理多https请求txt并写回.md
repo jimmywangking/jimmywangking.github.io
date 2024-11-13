@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "java处理https请求txt文件并写回"
+title: "java handle https/http requests txt and write response back"
 date: 2024-11-13
 ---
 为了提高程序的性能，我们可以使用多线程来并发地发送 HTTP 请求。Java 提供了多种方式来实现多线程，例如使用 `Thread` 类、实现 `Runnable` 接口，或者使用更高级的 `ExecutorService` 来管理线程池。

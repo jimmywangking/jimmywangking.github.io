@@ -18,8 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-wechat: jimmywangking
-# title: Hello World
+# wechat: jimmywangking
+title: Hello World
 email: jimmywangking@163.com
 description: >- # this means to ignore newlines until "baseurl:"
   Say hello to world, then tough to live in.

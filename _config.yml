@@ -28,7 +28,8 @@ twitter_username: none
 github_username:  jimmywangking
 
 # Build settings
-theme: minima
+# theme: minima
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 

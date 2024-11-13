@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "程序员使用的代码AI生成工具"
+title: "AIGC Tools For Developers"
 date: 2024-11-13
 ---
 

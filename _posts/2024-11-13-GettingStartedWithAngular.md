@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "How to get started with Angular"
-date: 2024-11-13
+date: 2023-10-13
 ---
 学习 **Angular**，作为一个现代的前端开发框架，涉及多个方面的技能，包括组件化开发、路由管理、表单处理、HTTP请求、依赖注入等。为了高效地学习Angular，可以按照以下步骤循序渐进地掌握它：
 

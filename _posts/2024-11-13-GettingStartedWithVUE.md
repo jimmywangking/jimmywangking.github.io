@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to get started with VUE"
-date: 2024-11-13
+date: 2023-10-13
 ---
 学习 Vue.js 是一个很好的选择，因为它是一个轻量级、易于上手的 JavaScript 框架，广泛用于构建现代化的前端应用。下面是一些学习 Vue.js 的步骤和资源，帮助你从入门到进阶逐步掌握这个框架。
 

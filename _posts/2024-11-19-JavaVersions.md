@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Long Term Supported Java Versions"
-date: 2024-11-1
+date: 2024-11-19
 ---
 目前比较通用的Java版本主要是 **Java 17** 和 **Java 11**，它们都是长期支持（LTS）版本。具体选择哪个版本，通常取决于项目需求和支持的稳定性：
 

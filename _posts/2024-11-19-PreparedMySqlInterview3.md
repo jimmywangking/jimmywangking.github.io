@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to prepare a mySql interview 2"
+title: "How to prepare a mySql interview 3"
 date: 2024-11-19
 ---
 以下是一些常见的 MySQL 面试题及答案，涵盖了从基础到进阶的不同难度级别。这些问题不仅考察了基本的 SQL 知识，还涉及了性能优化、事务处理、索引等高级话题。

@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "How to get started with React"
-date: 2024-11-13
+date: 2023-10-13
 ---
 学习 **React** 是一个非常好的选择，尤其是如果你想开发现代的前端应用。React 是一个非常流行的 JavaScript 库，主要用于构建用户界面。它的学习曲线相对较平缓，且有丰富的生态系统支持。以下是学习 React 的一些步骤和资源，帮助你从入门到进阶。
 

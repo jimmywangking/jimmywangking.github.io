@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spring Cloud Changes
+title: "Spring Cloud Changes"
 date: 2024-11-20
 ---
 
